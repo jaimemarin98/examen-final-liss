@@ -1,0 +1,67 @@
+/* header.component.css */
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 98vw;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: linear-gradient(135deg, rgba(128, 0, 128, 0.6), rgba(145, 73, 173, 0.6)); /* Degradado violeta con transparencia */
+    backdrop-filter: blur(8px); /* Agrega desenfoque al fondo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    animation: glowAnimation 2s infinite alternate;
+  }
+  
+  @keyframes glowAnimation {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 0, 255, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 1);
+    }
+  }
+  
+  .logo-container .logo {
+    height: 45px; /* Ajusta el tamaño del logo */
+    width: 100px;
+    object-fit: contain;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-item {
+    color: #ecf0f1;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-item:hover {
+    color: #8e44ad; /* Color cuando se pasa el mouse */
+    transform: scale(1.1);
+  }
+  
+  .nav-button {
+    padding: 10px 20px;
+    background-color: #9b59b6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #8e44ad;
+    transform: scale(1.1);
+  }
+  

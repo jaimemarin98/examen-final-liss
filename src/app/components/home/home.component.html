@@ -1,0 +1,148 @@
+<body>
+  <div class="container text-center my-5">
+    <div class="guitar-shape"></div>
+    <!-- Forma de la guitarra -->
+    <div class="guitar-neck"></div>
+    <!-- Mástil de la guitarra -->
+
+    <!-- Título con efecto llamativo -->
+    <h1 class="animated-title">
+      Explorando la Guitarra Clásica: Obras Icónicas y Creatividad
+    </h1>
+
+    <h2
+        class="animated-title"
+        style="font-size: 1rem; color: rgb(181, 149, 211)"
+      >
+        Evaluacion Final Lissett Castañeda Ramirez - 1225090594
+      </h2>
+      <h2
+        class="animated-title"
+        style="font-size: 0.7rem; color: rgb(181, 149, 211)"
+      >
+        UNAD 2024-2 Asignatura Guitarra
+      </h2>
+
+    <!-- Descripción dinámica -->
+    <p class="animated-text">"Bienvenidos a nuestro viaje sonoro por la guitarra clásica, explorando algunas de las obras más representativas del repertorio para este instrumento. Desde la riqueza cultural de Colombia hasta la fusión de estilos en la música contemporánea, estas piezas son una ventana a la creatividad de sus compositores."</p><br>
+    <p class="animated-text"> Hoy vamos a sumergirnos en cinco obras fascinantes de guitarristas y compositores que han dejado una huella profunda en el mundo de la guitarra. ¡Acompáñennos!"</p>
+    
+
+    <!-- Frase adicional con estilo -->
+    <h2 class="subtitle">Estas son mis obras musicales</h2>
+
+    <!-- Botones de interacción con efecto -->
+    <div class="button-container">
+      <button
+        class="btn btn-primary mt-4"
+        (click)="navigateToPage('obra1')"
+        data-toggle="tooltip"
+        title="Haz clic para explorar las obras más representativas de la guitarra clásica"
+      >
+        Obra 1
+        <div class="musical-notes">
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♬</span>
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♩</span>
+        </div>
+      </button>
+      <button class="btn btn-primary mt-4" (click)="navigateToPage('obra2')">
+        Obra 2
+        <div class="musical-notes">
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♬</span>
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♩</span>
+        </div>
+      </button>
+      <button class="btn btn-primary mt-4" (click)="navigateToPage('obra3')">
+        Obra 3
+        <div class="musical-notes">
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♬</span>
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♩</span>
+        </div>
+      </button>
+      <button class="btn btn-primary mt-4" (click)="navigateToPage('obra4')">
+        Obra 4
+        <div class="musical-notes">
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♬</span>
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♩</span>
+        </div>
+      </button>
+      <button class="btn btn-primary mt-4" (click)="navigateToPage('obra5')">
+        Obra 5
+        <div class="musical-notes">
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♬</span>
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♩</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Elementos flotantes animados en las esquinas -->
+    <div class="floating-elements">
+      <div class="musical-note">🎶</div>
+      <div class="guitar-rose">🌹</div>
+      <div class="guitar-pick">🎸</div>
+      <div class="star">⭐</div>
+    </div>
+
+    <p class="animated-text mt-4">Al hacer click sobre las imagenes se abriran información con datos curiosos sobre las guitarras</p>
+
+    <!-- Imágenes interactivas con animación -->
+    <div class="row mt-5 justify-content-center">
+      <div class="col-md-4" *ngFor="let image of images">
+        <h2 class="animated-text" style="color: rgb(184, 136, 230);">{{image.alt}}</h2>
+        <img
+          src="{{ image.src }}"
+          class="img-fluid animated-img"
+          alt="{{ image.alt }}"
+          (click)="openModal(image)"
+        />
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
+      <div class="modal-content"  style="background: linear-gradient(135deg, rgba(140, 77, 153, 0.6), rgba(145, 73, 173, 0.2)); /* Degradado violeta con transparencia */
+    backdrop-filter: blur(8px); /* Agrega desenfoque al fondo */" (click)="$event.stopPropagation()">
+        <!-- Título basado en el alt -->
+        <h1  class="animated-title" style="margin-bottom: 10px;">{{ modalImage.alt }}</h1>
+        <p class="modal-text animated-text">{{ modalImage.description }}</p>
+        <img
+          [src]="modalImage.src"
+          class="modal-img"
+          alt="{{ modalImage.alt }}"
+        />
+        <div class="button-container">
+          <button class="btn btn-primary mt-4" (click)="closeModal()">Cerrar
+            <div class="musical-notes">
+              <span class="note">♪</span>
+              <span class="note">♫</span>
+              <span class="note">♬</span>
+              <span class="note">♪</span>
+              <span class="note">♫</span>
+              <span class="note">♩</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

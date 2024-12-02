@@ -1,0 +1,171 @@
+<body>
+    <div class="container text-center my-5">
+      <div class="guitar-shape"></div>
+      <!-- Forma de la guitarra -->
+      <div class="guitar-neck"></div>
+      <!-- Mástil de la guitarra -->
+  
+      <!-- Título con efecto llamativo -->
+      <h1 class="animated-title">Bambuco en Mi Menor</h1>
+  
+      <h2
+        class="animated-title"
+        style="font-size: 1rem; color: rgb(181, 149, 211)"
+      >
+        Evaluacion Final Lissett Castañeda Ramirez - 1225090594
+      </h2>
+      <h2
+        class="animated-title"
+        style="font-size: 0.7rem; color: rgb(181, 149, 211)"
+      >
+        UNAD 2024-2 Asignatura Guitarra
+      </h2>
+      <!-- Descripción dinámica -->
+      <p class="animated-text">
+        Siguiendo en Colombia, encontramos a Pedro Ramírez, uno de los compositores más importantes del país. Su Bambuco en Mi Menor es una obra que transforma el bambuco, una danza tradicional de la región andina, en una pieza para guitarra clásica.
+      </p>
+      <br />
+      <p class="animated-text" style="margin-top: -30px">
+        El bambuco, con su ritmo ternario, transmite una profunda sensación de melancolía. Ramírez, al emplear la tonalidad de Mi menor, logra capturar la esencia emocional del bambuco, mientras que la guitarra resalta su ornamentación melódica. Esta obra se ha convertido en un referente para guitarristas colombianos, mostrando cómo la música popular puede fusionarse perfectamente con la tradición clásica.
+      </p>
+  
+      <!-- Elementos flotantes animados en las esquinas -->
+      <div class="floating-elements">
+        <div class="musical-note">🎶</div>
+        <div class="guitar-rose">🌹</div>
+        <div class="guitar-pick">🎸</div>
+        <div class="star">⭐</div>
+      </div>
+  
+      <p class="animated-text mt-4" style="color: brown;">
+        Al hacer click sobre las imagenes que titulan con la palabra video, se abriran el reproductor de videos.
+      </p>
+  
+      <!-- Miniaturas de video -->
+      <div class="row mt-5 justify-content-center">
+        <div class="col-md-4" *ngFor="let video of videos">
+          <h2 class="animated-text" style="color: rgb(184, 136, 230)">
+            {{ video.title }}
+          </h2>
+          <img
+            src="{{ video.thumbnail }}"
+            class="img-fluid video-thumbnail"
+            alt="{{ video.title }}"
+            (click)="openVideoModal(video)"
+          />
+        </div>
+      </div>
+  
+      <!-- Modal para el reproductor de video -->
+      <div
+        *ngIf="isVideoModalOpen"
+        class="modal-overlay"
+        (click)="closeVideoModal()"
+      >
+        <div
+          class="modal-content"
+          style="background: linear-gradient(135deg, rgba(140, 77, 153, 0.6), rgba(145, 73, 173, 0.2)); /* Degradado violeta con transparencia */
+    backdrop-filter: blur(8px); /* Agrega desenfoque al fondo */"
+          (click)="$event.stopPropagation()"
+        >
+          <h1 class="animated-title" style="margin-bottom: 10px">
+            {{ selectedVideo?.title }}
+          </h1>
+          <p class="animated-text">{{selectedVideo.alt}}</p>
+          <video
+            [src]="selectedVideo?.src"
+            controls
+            autoplay
+            class="modal-video"
+          ></video>
+          <div class="button-container">
+            <button class="btn btn-primary mt-4" (click)="closeVideoModal()">
+              Cerrar
+              <div class="musical-notes">
+                <span class="note">♪</span>
+                <span class="note">♫</span>
+                <span class="note">♬</span>
+                <span class="note">♪</span>
+                <span class="note">♫</span>
+                <span class="note">♩</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Botones de interacción con efecto -->
+      <div class="button-container">
+        <button
+          class="btn btn-primary mt-4"
+          (click)="navigateToPage('obra2')"
+          data-toggle="tooltip"
+          title="Haz clic para explorar las obras más representativas de la guitarra clásica"
+        >
+          VOLVER
+          <div class="musical-notes">
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♬</span>
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♩</span>
+          </div>
+        </button>
+        <button
+          class="btn btn-primary mt-4"
+          (click)="navigateToPage('obra4')"
+          data-toggle="tooltip"
+          title="Haz clic para explorar las obras más representativas de la guitarra clásica"
+        >
+          SIGUIENTE
+          <div class="musical-notes">
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♬</span>
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♩</span>
+          </div>
+        </button>
+        <button
+          class="btn btn-primary mt-4"
+          (click)="navigateToPage('')"
+          data-toggle="tooltip"
+          title="Haz clic para explorar las obras más representativas de la guitarra clásica"
+        >
+          PAGINA INICIO
+          <div class="musical-notes">
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♬</span>
+            <span class="note">♪</span>
+            <span class="note">♫</span>
+            <span class="note">♩</span>
+          </div>
+        </button>
+      </div>
+  
+      <!-- Modal -->
+      <div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
+        <div
+          class="modal-content"
+          style="background-color: rgb(131, 110, 151)"
+          (click)="$event.stopPropagation()"
+        >
+          <h1 class="animated-title" style="margin-bottom: 10px">
+            {{ modalImage.alt }}
+          </h1>
+          <!-- Título basado en el alt -->
+          <img
+            [src]="modalImage.src"
+            class="modal-img"
+            alt="{{ modalImage.alt }}"
+          />
+          <p class="modal-text animated-text">{{ modalImage.description }}</p>
+          <button class="close-btn" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  
