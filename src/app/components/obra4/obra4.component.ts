@@ -13,7 +13,7 @@ export class Obra4Component {
 
   videos = [
     {
-      title: 'Video Porro',
+      title: 'Video Koyunbaba',
       alt: 'Koyunbaba significa "pastor de ovejas" en turco y es también el nombre de un santo sufí del siglo XIII, venerado en Turquía. La obra está inspirada en los paisajes y tradiciones de la región turca donde se cree que Koyunbaba vivió.',
       text:     'La pieza utiliza una afinación especial (C# minor): C#-G#-C#-G#-C#-E, conocida como scordatura. Esto cambia la sonoridad habitual de la guitarra, evocando un ambiente misterioso y exótico.',
       thumbnail: 'assets/img/Koyunbaba.jpg', // Ruta a la miniatura
